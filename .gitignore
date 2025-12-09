@@ -1,0 +1,57 @@
+# Laravel / PHP stuff
+
+/vendor
+
+/node_modules
+
+/public/hot
+
+/public/storage
+
+/storage/*.key
+
+/.env
+
+/.idea
+
+/.vscode
+
+Homestead.yaml
+
+Homestead.json
+
+/.phpunit.result.cache
+ 
+# Laravel Mix / npm / Yarn
+
+npm-debug.log
+
+yarn-error.log
+
+yarn-debug.log
+
+package-lock.json
+
+yarn.lock
+ 
+# OS generated files
+
+.DS_Store
+
+Thumbs.db
+ 
+# IDE / Editor files
+
+*.sublime-workspace
+
+*.sublime-project
+
+*.code-workspace
+ 
+# Logs
+
+/storage/logs/*.log
+
+/storage/debugbar
+
+ 
