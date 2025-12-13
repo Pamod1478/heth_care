@@ -75,7 +75,7 @@
         
         
         <div class="bg-[#161e22] w-full text-center text-gray-500 mt-6 p-3">
-            <span class="font-bold text-3xl text-white">databoxtech.io</span><br>
+            <span class="font-bold text-xl text-white">created by pamod</span><br>
            
         </div>
     </div>
