@@ -26,7 +26,7 @@ Route::post('/login', function (Request $request) {
 
     if ($user && \Hash::check($credentials['password'], $user->password)) {
         Auth::login($user);
-        return redirect('/dashboard');
+        return redirect()->route('give.medicine'); // Changed to give-medicine
     }
 
     return back()->withErrors([
@@ -34,10 +34,24 @@ Route::post('/login', function (Request $request) {
     ]);
 });
 
-// Dashboard route
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware('auth');
+// Dashboard routes with middleware
+Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+
+    Route::get('/give-medicine', function () {
+        return view('Content.give_medicine');
+    })->name('give.medicine');
+
+    Route::get('/view-patients', function () {
+        return view('Content.view_patients');
+    })->name('view.patients');
+
+    Route::get('/total-income', function () {
+        return view('Content.total_income');
+    })->name('total.income');
+});
 
 Route::post('/logout', function () {
     Auth::logout();
