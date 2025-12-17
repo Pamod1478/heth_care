@@ -12,6 +12,7 @@ class Medicine extends Model
         'patient_id',
         'medicines',
         'price',
+        'date', // Add date to fillable attributes
     ];
 
     protected $casts = [

@@ -16,6 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('patient_id');
             $table->json('medicines'); // JSON column for medicine name:dose pairs
             $table->decimal('price', 10, 2)->nullable();
+            $table->date('date'); // <-- Add this line
             $table->timestamps();
 
             $table->foreign('patient_id')->references('id')->on('patients')->onDelete('cascade');

@@ -53,6 +53,7 @@ public function storeMedicine(Request $request, $patientId)
         'patient_id' => $patientId,
         'medicines' => $medicines,
         'price' => $request->price,
+        'date' => now()->toDateString(), // Save today's date
     ]);
 
     return redirect()->route('give.medicine')->with('success', 'Medicine record saved!');
