@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Models\Patient;
 
 // Show login page at /login
 Route::get('/login', function () {
@@ -57,3 +58,15 @@ Route::post('/logout', function () {
     Auth::logout();
     return redirect('/login');
 })->name('logout');
+
+Route::post('/patients', [App\Http\Controllers\PatientController::class, 'store'])->name('patients.store');
+
+Route::get('/api/patient-by-mobile', function (Request $request) {
+    $mobile = $request->query('mobile_number');
+    $patients = \App\Models\Patient::where('mobile_number', $mobile)->get();
+    return response()->json($patients);
+})->middleware('auth');
+
+Route::get('/add-medicine/{patient}', [App\Http\Controllers\PatientController::class, 'showAddMedicine'])->name('add.medicine');
+
+Route::post('/add-medicine/{patient}', [App\Http\Controllers\PatientController::class, 'storeMedicine'])->name('add.medicine.save');
