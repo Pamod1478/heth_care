@@ -57,4 +57,10 @@ public function storeMedicine(Request $request, $patientId)
 
     return redirect()->route('give.medicine')->with('success', 'Medicine record saved!');
 }
+
+public function viewPatients(Request $request)
+{
+    $patients = \App\Models\Patient::all();
+    return view('Content.view_patients', compact('patients'));
+}
 }

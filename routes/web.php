@@ -70,3 +70,5 @@ Route::get('/api/patient-by-mobile', function (Request $request) {
 Route::get('/add-medicine/{patient}', [App\Http\Controllers\PatientController::class, 'showAddMedicine'])->name('add.medicine');
 
 Route::post('/add-medicine/{patient}', [App\Http\Controllers\PatientController::class, 'storeMedicine'])->name('add.medicine.save');
+
+Route::get('/view-patients', [App\Http\Controllers\PatientController::class, 'viewPatients'])->name('view.patients');
